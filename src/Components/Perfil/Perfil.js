@@ -10,7 +10,7 @@ function Perfil() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const baseURL = process.env.REACT_APP_API_URL || "http://localhost:4000"
+    const baseURL = process.env.REACT_APP_API_UR
     const idPerfil = "628956877f495c1e5ed29425"
 
     const navigate = useNavigate();

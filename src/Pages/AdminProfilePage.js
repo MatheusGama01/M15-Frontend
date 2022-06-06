@@ -7,7 +7,7 @@ import "./AdminProfilePage.css";
 function AdminProfilePage() {
     const [perfil, setPerfil] = useState([])
     
-    const baseURL = process.env.REACT_APP_API_URL || "http://localhost:4000"
+    const baseURL = process.env.REACT_APP_API_URL
     
     function getProfile(URL) {
         axios.get(`${URL}/perfil`)

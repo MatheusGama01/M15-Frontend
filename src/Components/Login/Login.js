@@ -8,7 +8,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const baseURL = process.env.REACT_APP_API_URL || "http://localhost:4000"
+  const baseURL = process.env.REACT_APP_API_URL
   var token = ""
 
   const navigate = useNavigate();
