@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-admin-page{
+    width:  100%;
+    margin: 0;
+}
+
+.admin-profile-page{
+    display: grid;
+    grid-template-rows: 9vh 91vh;
+    grid-template-areas: "header"
+                         "content"
+}
+
+header{
+    grid-area: header;
+}
+
+.content{
+    grid-area: content;
+    background-color: #E8E2FF;
+}
+
+.texto{
+    display: block;
+    justify-content: center;
+    margin: 10px;
+}
+
+.card-perfil{
+    margin: 10px;
+}

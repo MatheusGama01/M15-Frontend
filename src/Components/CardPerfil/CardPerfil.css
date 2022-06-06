@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-card-perfil{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    width: 24%;
+    margin: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.container-card-perfil-dados-usuário{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nome-card-perfil{
+    margin-bottom: 10px;
+}
+
+.email-card-perfil{
+    margin-bottom: 10px;
+}
+
+.container-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-btn:hover{
+    cursor: pointer;
+}
+
+.apagar{
+    margin-left: 5px;
+}
