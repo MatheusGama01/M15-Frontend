@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
+
+
 function RegisterForm() {
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
@@ -9,7 +11,8 @@ function RegisterForm() {
   const [confirmPassword, setConfirmPassword] = useState("")
   const navigate = useNavigate();
 
-  const baseURL = process.env.REACT_APP_API_URL
+
+  const baseURL = "https://m15-backend.herokuapp.com/" || process.env.REACT_APP_API_URL || "http://localhost:4000"
 
   function cadastro(nome, email, password, URL) {
     axios.post(`${URL}/cadastro`, {
