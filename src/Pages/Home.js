@@ -1,7 +1,10 @@
 import React from 'react';
 import HomePage from '../Components/Home/HomePage.js';
 import Header from '../Components/Header/Header.js';
+import token from '../Variaveis.js';
+
 function Home() {
+
   return (
     <div className="Home">
       <Header/>

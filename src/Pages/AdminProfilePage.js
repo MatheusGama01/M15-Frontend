@@ -7,7 +7,7 @@ import "./AdminProfilePage.css";
 function AdminProfilePage() {
     const [perfil, setPerfil] = useState([])
     
-    const baseURL = process.env.REACT_APP_API_URL || "http://localhost:4000"
+    const baseURL = "https://m15-backend.herokuapp.com" || process.env.REACT_APP_API_URL || "http://localhost:4000"
     
     function getProfile(URL) {
         axios.get(`${URL}/perfil`)
