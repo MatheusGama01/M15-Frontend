@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
+import { token, id } from "../../LocalStorage";
 
 
 function Login() {
@@ -9,7 +10,6 @@ function Login() {
   const [password, setPassword] = useState("");
 
   const baseURL = "https://m15-backend.herokuapp.com" || process.env.REACT_APP_API_URL || "http://localhost:4000"
-  var token = ""
 
   const navigate = useNavigate();
 
