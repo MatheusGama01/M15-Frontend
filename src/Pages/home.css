@@ -4,13 +4,20 @@
     box-sizing: border-box;
 }
 
-.container-home-page{
+.container-admin-page{
     width:  100%;
     margin: 0;
 }
 
-.home-page{
+.content-header{
     display: flex;
-   flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
+.cadastrar-filme{
+    
+}
+
+.cadastrar-filme:hover{
+    cursor: pointer;
+}

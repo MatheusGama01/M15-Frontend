@@ -5,6 +5,7 @@ import Home from "./Pages/Home.js";
 import Perfil from "./Pages/Perfil.js";
 import PerfilAdmin from "./Pages/AdminProfilePage.js";
 import RegisterForm from "../src/Components/Register/RegisterForm.js";
+import AssistiFilme from "./Components/Home/AssistiFilme.js"
 import ProtectedRoute from "./ProtectedRoute.js";
 import { token } from "./auth.js";
 
@@ -36,6 +37,12 @@ function App() {
         <Route path='/Admin' element={
           <ProtectedRoute token={token}>
             <PerfilAdmin token={token} />
+          </ProtectedRoute>
+        } />
+
+        <Route path='/filme/cadastro' element={
+          <ProtectedRoute token={token}  >
+            <AssistiFilme token={token} />
           </ProtectedRoute>
         } />
 

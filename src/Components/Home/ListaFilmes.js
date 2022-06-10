@@ -1,8 +1,9 @@
 import React from "react";
+import { BsFillTrashFill } from "react-icons/bs/index.js";
 import "../CardPerfil/CardPerfil.css";
 
 function Lista({ filme, deleteFilm }) {
-    function removeFilm(){
+    function removeFilm() {
         const id = filme._id
         deleteFilm(id);
     };
@@ -24,8 +25,8 @@ function Lista({ filme, deleteFilm }) {
                 </div>
             </div>
             <div className="container-btn" onClick={removeFilm}>
-                    
-                    <span className="apagar">Apagar</span>
+                <BsFillTrashFill />
+                <span className="apagar">Apagar</span>
             </div>
         </div>
     )

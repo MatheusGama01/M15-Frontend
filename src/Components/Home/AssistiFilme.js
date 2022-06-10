@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 import './style.css';
 
 
@@ -11,7 +12,8 @@ function AssistiFilme() {
     const [opniao, setOpiniao] =  useState("")
 
     const baseURL = "http://localhost:4000"
-
+    
+    const navigate = useNavigate();
 
     function cadastroFilme(nome,diretor,genero,opniao,URL) {
 
@@ -23,7 +25,7 @@ function AssistiFilme() {
         }).then(res => {
             console.log(res.data.message)
             alert(JSON.stringify(res.data.message))
-
+            navigate('/')
         }).catch(error =>{
             console.log(error)
             alert(JSON.stringify(error.response.data.message))

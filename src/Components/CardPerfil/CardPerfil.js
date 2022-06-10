@@ -1,5 +1,5 @@
 import React from "react";
-import {BsFillTrashFill} from "react-icons/bs/index.js"
+import {BsFillTrashFill} from "react-icons/bs/index.js";
 import "./CardPerfil.css";
 
 function CardPerfil({ perfil, deleteProfile }) {

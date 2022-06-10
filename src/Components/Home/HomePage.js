@@ -1,8 +1,10 @@
+import axios from 'axios';
 import { React, useEffect, useState } from 'react';
 import './HomePage.css';
 import Contagem from './ContagemFilmes.js';
 import Lista from './ListaFilmes.js';
-import axios from 'axios';
+import "./HomePage.css";
+
 
 function HomePage() {
     const [nome, setNome] = useState("")
@@ -11,7 +13,7 @@ function HomePage() {
     const [filme, setFilme] = useState([])
     
     const baseURL =  "http://localhost:4000" || "https://m15-backend.herokuapp.com" 
-    const qntFilme = ""
+    
 
     function getFilme(URL){
         axios.get(`${URL}/filme`)
@@ -44,6 +46,8 @@ function HomePage() {
     useEffect(() => {
         getFilme(baseURL)
     }, [])
+
+    const qntFilme = ""
 
     return (
        <div className='container-homePage'>
