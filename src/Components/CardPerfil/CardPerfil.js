@@ -1,5 +1,4 @@
 import React from "react";
-import Delete from "../../assets/Delete.png";
 import {BsFillTrashFill} from "react-icons/bs/index.js"
 import "./CardPerfil.css";
 

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import foto_de_perfil from "../../assets/Foto_de_perfil.png";
 import voltar from "../../assets/Voltar.png";
+import { token } from "../../auth.js";
+import jwt_decode from "jwt-decode";
 import "./Perfil.css";
 
 function Perfil() {
@@ -10,8 +11,9 @@ function Perfil() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const baseURL = "https://m15-backend.herokuapp.com" || process.env.REACT_APP_API_URL || "http://localhost:4000"
-    const idPerfil = "628956877f495c1e5ed29425"
+    const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
+    const decode = jwt_decode(token)
+    const idPerfil = decode.id
 
     const navigate = useNavigate();
 
@@ -78,10 +80,6 @@ function Perfil() {
 
                         <span className="link-home" >
                             <img src={voltar} alt="Voltar" onClick={handleBackClick} />
-                        </span>
-
-                        <span className="imagem-perfil">
-                            <img src={foto_de_perfil} alt="Foto de perfil" />
                         </span>
 
                         <div className="wrap-input">

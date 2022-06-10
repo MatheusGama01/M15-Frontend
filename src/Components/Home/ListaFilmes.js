@@ -1,54 +1,35 @@
-import React, {useState} from 'react';
-import './style.css';
+import React from "react";
+import "../CardPerfil/CardPerfil.css";
 
-function Lista(props) {
-    const [state , setState] = useState({
-        filmes: "",
-    })
-    
-    const handleChange = (e) => {
-        const {id , value} = e.target   
-        setState(prevState => ({
-            ...prevState,
-            [id] : value
-        }))
-    }
-    
-    return(
-        <div id="listafilmes" class="card">
-            <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">Filme</th>
-                <th scope="col">Data</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td>ABC</td>
-                <td>20/04/2022</td>
-                </tr>
-                <tr>
-                <td>FILME 1</td>
-                <td>19/04/2022</td>
-                </tr>
-                <tr>
-                <td>FILME 2</td>
-                <td>11/04/2022</td>
-                </tr>
-                <tr>
-                <td>FILME 3</td>
-                <td>31/03/2022</td>
-                </tr>
-                <tr>
-                <td>FILME 4</td>
-                <td>21/03/2022</td>
-                </tr>
-            </tbody>
-            </table>
+function Lista({ filme, deleteFilm }) {
+    function removeFilm(){
+        const id = filme._id
+        deleteFilm(id);
+    };
+
+    return (
+        <div className="container-card-perfil" >
+            <div className="container-card-perfil-dados-usuário">
+                <div className="nome-card-perfil">
+                    <span>Nome: {filme.nome}</span>
+                </div>
+                <div className="email-card-perfil">
+                    <span>Diretor: {filme.diretor}</span>
+                </div>
+                <div className="email-card-perfil">
+                    <span>Gênero: {filme.genero}</span>
+                </div>
+                <div className="email-card-perfil">
+                    <span>Opnião: {filme.opniao}</span>
+                </div>
+            </div>
+            <div className="container-btn" onClick={removeFilm}>
+                    
+                    <span className="apagar">Apagar</span>
+            </div>
         </div>
-      
     )
 }
+
 
 export default Lista;

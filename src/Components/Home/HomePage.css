@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-homePage{
+    width:  100%;
+    margin: 0;
+}
+
+.page-home{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #E8E2FF;
+}

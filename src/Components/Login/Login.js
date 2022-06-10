@@ -1,18 +1,20 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import Home from "../../Pages/Home.js";
+import { mudarToken } from "../../auth.js";
 import "./Login.css";
-
 
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const baseURL = "https://m15-backend.herokuapp.com" || process.env.REACT_APP_API_URL || "http://localhost:4000"
-  const token = "";
+  const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
+  let token = "";
   
   const navigate = useNavigate();
+
 
   function login(email, password, URL) {
     if (email !== "" && password !== "") {
@@ -23,7 +25,9 @@ function Login() {
       .then(response => {
         console.log(response.data)
         token = response.data.token
+        mudarToken(token)
         navigate('/')
+        return <Navigate to={<Home token={token} />}/>
       })
       .catch(error => {
         console.error(error)

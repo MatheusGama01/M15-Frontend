@@ -7,7 +7,7 @@ import "./AdminProfilePage.css";
 function AdminProfilePage() {
     const [perfil, setPerfil] = useState([])
     
-    const baseURL = "https://m15-backend.herokuapp.com" || process.env.REACT_APP_API_URL || "http://localhost:4000"
+    const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
     
     function getProfile(URL) {
         axios.get(`${URL}/perfil`)
@@ -29,7 +29,10 @@ function AdminProfilePage() {
             window.confirm(JSON.stringify(response.data.message))
             getProfile(baseURL);
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            console.error(error)
+            alert(JSON.stringify(error.response.data.message))
+        });
     }
 
 
