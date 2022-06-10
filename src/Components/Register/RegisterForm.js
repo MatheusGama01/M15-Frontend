@@ -19,7 +19,7 @@ function RegisterForm() {
       nome,
       email,
       senha: password,
-      admin: true,
+      admin: false,
     }).then(response => {
       console.log(response.data)
       navigate('/Login')
