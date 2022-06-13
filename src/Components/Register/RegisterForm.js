@@ -12,14 +12,14 @@ function RegisterForm() {
   const navigate = useNavigate();
 
 
-  const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
+  const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
 
   function cadastro(nome, email, password, URL) {
     axios.post(`${URL}/cadastro`, {
       nome,
       email,
       senha: password,
-      admin: true,
+      admin: false,
     }).then(response => {
       console.log(response.data)
       navigate('/Login')

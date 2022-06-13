@@ -6,7 +6,9 @@
 
 .container-admin-page{
     width:  100%;
+    height: 100%;
     margin: 0;
+    background-color: #E8E2FF;
 }
 
 .admin-profile-page{
@@ -19,7 +21,7 @@ header{
 
 .content{
     padding: 10px;
-    background-color: #E8E2FF;
+    
 }
 
 .texto{

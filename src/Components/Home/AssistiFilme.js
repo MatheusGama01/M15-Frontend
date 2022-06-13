@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
-import './style.css';
+import Header from '../Header/Header.js';
+import './AssistiFilme.css';
 
 
 
@@ -11,7 +12,7 @@ function AssistiFilme() {
     const [genero, setGenero] =  useState("")
     const [opniao, setOpiniao] =  useState("")
 
-    const baseURL = "http://localhost:4000"
+    const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
     
     const navigate = useNavigate();
 
@@ -34,33 +35,55 @@ function AssistiFilme() {
     }
     const handleSubmitClick = (e) => {
         e.preventDefault();
-        cadastroFilme(nome,diretor,genero,opniao,baseURL);
+        cadastroFilme(nome, diretor, genero, opniao, baseURL);
       }
     
-    
-    return(
-        <form id="formulario" >
-            <h4>Diario de filmes</h4>
 
-            <h6>Informações Sobre Filmes Assistidos:</h6>
+    return (
 
-            <label>Nome:</label>
-                <input type="text" nome="txtnome" value={nome} onChange={e => setNome(e.target.value)}></input><br></br>
-                <label>Diretor:</label>
-                <input type="text" nome="txtgenero" value={diretor} onChange={e => setDiretor(e.target.value)}></input><br></br>
-                <label>Gênero:</label>
-                <input type="text" nome="txtautor" value={genero} onChange={e => setGenero(e.target.value)}></input><br></br>
-                <label>Opinião:</label>
-                <input type="text" nome="txtcomentario" value={opniao} onChange={e => setOpiniao(e.target.value)}></input><br></br>
-                <button 
-              className="botaoform" 
-              onClick={handleSubmitClick}
-              >
-                Salvar
-              </button>
 
-        </form>
-    
+        <>
+            <div>
+                <Header />
+            </div>
+
+            <div className='container'>
+
+                <form id="formulario" className="row g-3" >
+
+                    <h1 className='mt-5'>Cadatrar Filme</h1>
+
+                    <div class="col-12">
+                        <label for="inputNome" className="form-label">Nome:</label>
+                        <input type="text" className="form-control" id="inputNome" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputDiretor" className="form-label">Diretor:</label>
+                        <input type="text" className="form-control" id="inputDiretor" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="inputGenero" class="form-label">Gênero:</label>
+                        <input type="text" class="form-control" id="inputGenero" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label className="form-label">Dê sua opinião:</label>
+                        <textarea className="form-control" id="TextareaOpniao" rows="4"></textarea>
+                    </div>
+
+                    <div class="col-12">
+                        <button
+                            className="btn btn-primary"
+                            onClick={handleSubmitClick}
+                        >
+                            Criar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </>
     )
 }
 
