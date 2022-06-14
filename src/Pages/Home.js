@@ -64,7 +64,7 @@ function Home() {
         </header>
 
         <div className="content">
-          <div className='content-header'>
+          <div className='d-flex justify-content-between mb-2'>
             <div className='contagem-filmes'>
               Filmes assistidos: {qntFilme} 
             </div>

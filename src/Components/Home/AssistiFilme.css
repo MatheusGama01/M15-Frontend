@@ -4,62 +4,8 @@
     box-sizing: border-box;
 }
 
-small{
-    text-align: bottom;
-}
-
-#homepg{
-    background-color: #BBBABA;
-}
-
-#ultimofilmevisto{
-    background-color:#BBBABA ;
-    width: auto;
-    margin-top: 80px;
-    margin-right: 800px;
-    padding: 10px;
-}
-
-#diretormaisvisto{
-    width: auto;
-    margin-top: -95px;
-    margin-right: 800px;
-    padding: 10px;
-}
-
-#generomaisvisto{
-    width: auto;
-    margin-top: 10px;
-    margin-right: 800px;
-    padding: 10px;
-}
-
-#contagemfilmes{
-    width: auto;
-    margin-top: -290px;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    font-size: xx-large;
-}
-
-#novoFilme{
-    margin-top: 40px;
-    font-size:x-large;
-    margin-right: auto;
-    margin-left: auto;
-}
-
-#listafilmes{
-    width: auto;
-    margin-top: -250px;
-    margin-left: 800px;
-    padding: 10px;
-}
-
-#listaCompleta{
-    margin-top: 40px;
-    font-size:medium;
-    margin-right: auto;
-    margin-left: 925px;
+.container-page{
+    width: 100%;
+    height: 100%;
+    background-color: #E8E2FF;
 }

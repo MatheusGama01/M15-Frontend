@@ -48,12 +48,19 @@ function AdminProfilePage() {
                 </header>
 
                 <div className="content">
+
                     <div className="texto">
                         <span>Perfis cadastrados:</span>
                     </div>
+
                     <div className="card-perfil">
-                        {perfil.map(p => <CardPerfil perfil={p} deleteProfile={removeProfile} />)}
+                        {perfil.map(p => (
+                            <div className="mt-3">
+                                <CardPerfil perfil={p} deleteProfile={removeProfile} />
+                            </div>
+                        ))}
                     </div>
+
                 </div>
                 
             </div>
