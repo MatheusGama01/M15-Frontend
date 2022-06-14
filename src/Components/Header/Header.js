@@ -50,7 +50,7 @@ function Header() {
     return (
         <div className="header">
             <nav className="container">
-                <div className="item">
+                <div className="nome-app">
                     <div onClick={redirectToHome}><strong>M15</strong></div>
                 </div>
 
@@ -58,7 +58,7 @@ function Header() {
                     {admin === true
                         ? <div className="item-perfis">
                             <div onClick={redirectToAdmin}>
-                                Perfis
+                                Usuários
                             </div>
                         </div>
                         : <></>}
