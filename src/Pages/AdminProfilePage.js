@@ -2,15 +2,20 @@ import axios from 'axios';
 import React, { useState, useEffect } from "react";
 import CardPerfil from "../Components/CardPerfil/CardPerfil.js";
 import Header from "../Components/Header/Header.js";
+import { token } from "../auth.js";
 import "./AdminProfilePage.css";
 
 function AdminProfilePage() {
     const [perfil, setPerfil] = useState([])
-    
+
     const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
-    
+
     function getProfile(URL) {
-        axios.get(`${URL}/perfil`)
+        axios.get(`${URL}/perfil`, {
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
+        })
             .then(response => {
                 console.log(response.data)
                 setPerfil(response.data || null)
@@ -23,16 +28,20 @@ function AdminProfilePage() {
     };
 
 
-    function removeProfile(id){
-        axios.delete(`${baseURL}/perfil/apagar/${id}`)
-        .then(response => {
-            window.confirm(JSON.stringify(response.data.message))
-            getProfile(baseURL);
+    function removeProfile(id) {
+        axios.delete(`${baseURL}/perfil/apagar/${id}`, {
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
         })
-        .catch(error => {
-            console.error(error)
-            alert(JSON.stringify(error.response.data.message))
-        });
+            .then(response => {
+                window.confirm(JSON.stringify(response.data.message))
+                getProfile(baseURL);
+            })
+            .catch(error => {
+                console.error(error)
+                alert(JSON.stringify(error.response.data.message))
+            });
     }
 
     useEffect(() => {
@@ -43,7 +52,7 @@ function AdminProfilePage() {
         <div className="container-admin-page">
             <div className="admin-profile-page">
                 <header>
-                    <Header/>
+                    <Header />
                 </header>
 
                 <div className="content">
@@ -61,7 +70,7 @@ function AdminProfilePage() {
                     </div>
 
                 </div>
-                
+
             </div>
         </div>
     );

@@ -18,7 +18,11 @@ function Perfil() {
     const navigate = useNavigate();
 
     function getProfile(URL, id) {
-        axios.get(`${URL}/perfil/${id}`)
+        axios.get(`${URL}/perfil/${id}`, {
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
+        })
             .then(response => {
                 console.log(response.data)
                 setNome(response.data.perfil.nome || "")
@@ -36,20 +40,28 @@ function Perfil() {
             nome,
             email,
             senha: password,
+        }, {
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
         })
-        .then(response => {
-            alert(JSON.stringify(response.data.message))
-        })
-        .catch(error => console.error(error));
+            .then(response => {
+                alert(JSON.stringify(response.data.message))
+            })
+            .catch(error => console.error(error));
     };
 
     function deleteProfile(URL, id) {
-        axios.delete(`${URL}/perfil/apagar/${id}`)
-        .then(response => {
-          window.confirm(JSON.stringify(response.data.message))
-          navigate('/Login');
+        axios.delete(`${URL}/perfil/apagar/${id}`, {
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
         })
-        .catch(error => console.error(error));
+            .then(response => {
+                window.confirm(JSON.stringify(response.data.message))
+                navigate('/Login');
+            })
+            .catch(error => console.error(error));
     };
 
     useEffect(() => {
@@ -116,7 +128,7 @@ function Perfil() {
                         </div>
 
                         <div className="container-perfil-btn">
-                            
+
                             <button
                                 className="perfil-save-btn"
                                 onClick={handleSaveClick}

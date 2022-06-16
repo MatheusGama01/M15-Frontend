@@ -9,50 +9,58 @@ import "./AdminProfilePage.css";
 
 
 function Home() {
-  
+
   console.log(`Em home o token é: ${token}`)
 
   const [filme, setFilme] = useState([])
-    
-  const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
+
+  const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
   let qntFilme = "0"
 
   const navigate = useNavigate();
-  
+
   function getFilme(URL) {
-      axios.get(`${URL}/filme`)
-          .then(response => {
-              console.log(response.data)
-              setFilme(response.data || null)
-              qntFilme = response.data.length
-              console.log(`qntFilme = ${qntFilme}`)
-          })
-          .catch(error => {
-              console.log(error)
-              alert(JSON.stringify(error.response.data.message))
-              alert(baseURL)
-          })
+    axios.get(`${URL}/filme`, {
+      headers: {
+        'Authorization': `Basic ${token}`
+      }
+    })
+      .then(response => {
+        console.log(response.data)
+        setFilme(response.data || null)
+        qntFilme = response.data.length
+        console.log(`qntFilme = ${qntFilme}`)
+      })
+      .catch(error => {
+        console.log(error)
+        alert(JSON.stringify(error.response.data.message))
+        alert(baseURL)
+      })
   };
 
 
-  function removeFilme(id){
-      axios.delete(`${baseURL}/filme/apagar/${id}`)
+  function removeFilme(id) {
+    axios.delete(`${baseURL}/filme/apagar/${id}`, {
+      headers: {
+        'Authorization': `Basic ${token}`
+      }
+    })
       .then(response => {
-          window.confirm(JSON.stringify(response.data.message))
-          getFilme(baseURL);
+        window.confirm(JSON.stringify(response.data.message))
+        getFilme(baseURL);
       })
       .catch(error => {
-          console.error(error)
-          alert(JSON.stringify(error.response.data.message))
+        console.error(error)
+        alert(JSON.stringify(error.response.data.message))
       });
-  }
+  };
 
 
   useEffect(() => {
-      getFilme(baseURL)
+    getFilme(baseURL)
   }, [])
 
-  function redirectToRegisterFilm(){
+  function redirectToRegisterFilm() {
     navigate('/filme/cadastro')
   }
 
@@ -66,7 +74,7 @@ function Home() {
         <div className="content">
           <div className='d-flex justify-content-between mb-2'>
             <div className='contagem-filmes'>
-              Filmes assistidos: {qntFilme} 
+              Filmes assistidos: {qntFilme}
             </div>
             <div className='cadastrar-filme' onClick={redirectToRegisterFilm} >
               + Assisti a um filme

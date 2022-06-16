@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Components/Login/Login.js'
 import Home from "./Pages/Home.js";
 import Perfil from "./Pages/Perfil.js";
@@ -14,7 +14,7 @@ import { history } from './history.js';
 
 function App() {
 
-  console.log(`Em app o token é: ${token}`)
+  console.log(`Em app o token é: ${token}`);
 
   return (
     <Router history={history}>
@@ -46,8 +46,6 @@ function App() {
             <ModifyUser token={token} />
           </ProtectedRoute>
         } />
-
-ModifyUser-Admin
 
         <Route path='/filme/cadastro' element={
           <ProtectedRoute token={token}  >

@@ -1,43 +1,49 @@
 import axios from 'axios';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from '../Header/Header.js';
+import { token } from "../../auth.js";
 import './AssistiFilme.css';
 
 
 
 function AssistiFilme() {
-    const [nome, setNome] =  useState("")
-    const [diretor, setDiretor] =  useState("")
-    const [genero, setGenero] =  useState("")
-    const [opniao, setOpiniao] =  useState("")
+    const [nome, setNome] = useState("")
+    const [diretor, setDiretor] = useState("")
+    const [genero, setGenero] = useState("")
+    const [opniao, setOpiniao] = useState("")
 
     const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
-    
+
     const navigate = useNavigate();
 
-    function cadastroFilme(nome,diretor,genero,opniao,URL) {
+    function cadastroFilme(nome, diretor, genero, opniao, URL) {
 
-        axios.post(`${URL}/filme/cadastro`,{
-            nome, 
-            diretor, 
+        axios.post(`${URL}/filme/cadastro`, {
+            nome,
+            diretor,
             genero,
             opniao,
+        }, {
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
         }).then(res => {
             console.log(res.data.message)
             alert(JSON.stringify(res.data.message))
             navigate('/')
-        }).catch(error =>{
+        }).catch(error => {
             console.log(error)
             alert(JSON.stringify(error.response.data.message))
         })
 
-    }
+    };
+
     const handleSubmitClick = (e) => {
         e.preventDefault();
         cadastroFilme(nome, diretor, genero, opniao, baseURL);
-      }
-    
+    };
+
 
     return (
 

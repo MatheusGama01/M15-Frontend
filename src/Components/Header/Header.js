@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import Foto_de_perfil from "../../assets/Foto_de_perfil.png";
 import jwtDecode from 'jwt-decode';
 import { token } from '../../auth.js';
 import "./Header.css"
@@ -13,7 +12,7 @@ function Header() {
 
     const decode = jwtDecode(token)
     const idPerfil = decode.id
-    const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
+    const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
 
     const navigate = useNavigate();
 

@@ -17,7 +17,11 @@ function ModifyUser() {
     const navigate = useNavigate();
 
     function getProfile(URL, id) {
-        axios.get(`${URL}/perfil/${id}`)
+        axios.get(`${URL}/perfil/${id}`, {
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
+        })
             .then(response => {
                 console.log(response.data)
                 setNome(response.data.perfil.nome || "")
@@ -37,16 +41,16 @@ function ModifyUser() {
             email,
             senha: password,
             admin,
-        },{
+        }, {
             headers: {
-                'Authorization': `Basic ${token}` 
-              }
+                'Authorization': `Basic ${token}`
+            }
         })
-        .then(response => {
-            alert(JSON.stringify(response.data.message))
-            navigate('/admin')
-        })
-        .catch(error => console.error(error));
+            .then(response => {
+                alert(JSON.stringify(response.data.message))
+                navigate('/admin')
+            })
+            .catch(error => console.error(error));
     }
 
     useEffect(() => {
@@ -58,7 +62,7 @@ function ModifyUser() {
         e.preventDefault();
         editarPerfil(nome, email, password, admin);
     }
-    
+
 
     return (
 
