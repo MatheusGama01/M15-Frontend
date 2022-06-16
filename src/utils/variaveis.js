@@ -3,7 +3,7 @@ let idModifyProfile = "";
 function changeIdModifyProfile(novoId){
     idModifyProfile = novoId
     console.log(`Em mudarIdModifyProfile o id passou a ser: ${idModifyProfile}`);
-    localStorage.setItem("idModifyProfile",idModifyProfile)
+    localStorage.setItem("idModifyProfile",idModifyProfile);
     console.log(`O id salvo localmente é ${localStorage.getItem("idModifyProfile")}`);
 }
 
