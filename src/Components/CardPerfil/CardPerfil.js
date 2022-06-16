@@ -16,6 +16,7 @@ function CardPerfil({ perfil, deleteProfile }) {
 
     function redirectToModifyProfile(){
         changeIdModifyProfile(id)
+        console.log(id)
         navigate('/admin/perfil')
     }
 

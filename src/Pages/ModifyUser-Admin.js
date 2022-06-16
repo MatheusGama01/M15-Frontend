@@ -2,7 +2,6 @@ import axios from 'axios';
 import { React, useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from '../Components/Header/Header.js';
-import { idModifyProfile } from "../utils/variaveis.js";
 import { token } from "../auth.js";
 
 function ModifyUser() {
@@ -13,6 +12,7 @@ function ModifyUser() {
 
 
     const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
+    const idModifyProfile = localStorage.getItem("idModifyProfile")
 
     const navigate = useNavigate();
 
