@@ -51,7 +51,7 @@ function AssistiFilme() {
 
                 <form id="formulario" className="row g-3" >
 
-                    <h1 className='mt-5'>Cadatrar filme</h1>
+                    <h1 className='mt-5'>Cadatrar filme!</h1>
 
                     <div class="col-12">
                         <label for="inputNome" className="form-label">Nome:</label>
@@ -78,7 +78,7 @@ function AssistiFilme() {
                             className="btn btn-primary"
                             onClick={handleSubmitClick}
                         >
-                            Criar
+                            Cadastrar filme
                         </button>
                     </div>
                 </form>

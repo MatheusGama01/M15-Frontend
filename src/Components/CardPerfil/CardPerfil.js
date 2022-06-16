@@ -1,15 +1,26 @@
 import React from "react";
 import { FaPen, FaTrash } from "react-icons/fa/index.js";
+import { useNavigate } from "react-router-dom";
+import { changeIdModifyProfile } from "../../utils/variaveis.js";
 import "./CardPerfil.css";
 
 function CardPerfil({ perfil, deleteProfile }) {
+    
+    const id = perfil._id
+
+    const navigate = useNavigate();
+    
     function removeProfile(){
-        const id = perfil._id
         deleteProfile(id);
     };
 
+    function redirectToModifyProfile(){
+        changeIdModifyProfile(id)
+        navigate('/admin/perfil')
+    }
+
     return (
-        <div className="card mb-3 shadow-sm">
+        <div className="card mb-3 shadow-sm" id="card-perfil">
             <div className="card-body">
                 <div className="d-flex justify-content-between mb-2">
 
@@ -33,12 +44,12 @@ function CardPerfil({ perfil, deleteProfile }) {
 
                 <div className="d-flex justify-content-end pt-2 m-0 border-top">
                     
-                    <button className="btn btn-sm btn-outline-primary me-2">
+                    <button className="btn btn-sm btn-outline-primary me-2" onClick={redirectToModifyProfile}>
                         <i className="me-2"><FaPen/></i>
                         Editar
                     </button>
 
-                    <button className="btn btn-sm btn-outline-danger">
+                    <button className="btn btn-sm btn-outline-danger" onClick={removeProfile}>
                         <i className="me-2"><FaTrash/></i>
                         Apagar
                     </button>

@@ -5,11 +5,12 @@ import Home from "./Pages/Home.js";
 import Perfil from "./Pages/Perfil.js";
 import PerfilAdmin from "./Pages/AdminProfilePage.js";
 import RegisterForm from "../src/Components/Register/RegisterForm.js";
-import AssistiFilme from "./Components/Home/AssistiFilme.js"
+import AssistiFilme from "./Components/Home/AssistiFilme.js";
+import ModifyUser from './Pages/ModifyUser-Admin.js';
 import ProtectedRoute from "./ProtectedRoute.js";
 import { token } from "./auth.js";
-
 import { history } from './history.js';
+
 
 function App() {
 
@@ -18,9 +19,9 @@ function App() {
   return (
     <Router history={history}>
       <Routes>
-        <Route path='/Login' element={<Login />} />
+        <Route path='/login' element={<Login />} />
 
-        <Route path='/Cadastro' element={<RegisterForm />} />
+        <Route path='/cadastro' element={<RegisterForm />} />
 
         <Route path='/' element={
           <ProtectedRoute token={token}  >
@@ -28,17 +29,25 @@ function App() {
           </ProtectedRoute>
         } />
 
-        <Route path='/Perfil' element={
+        <Route path='/perfil' element={
           <ProtectedRoute token={token}>
             <Perfil token={token} />
           </ProtectedRoute>
         } />
 
-        <Route path='/Admin' element={
+        <Route path='/admin' element={
           <ProtectedRoute token={token}>
             <PerfilAdmin token={token} />
           </ProtectedRoute>
         } />
+
+        <Route path='/admin/perfil' element={
+          <ProtectedRoute token={token}>
+            <ModifyUser token={token} />
+          </ProtectedRoute>
+        } />
+
+ModifyUser-Admin
 
         <Route path='/filme/cadastro' element={
           <ProtectedRoute token={token}  >
