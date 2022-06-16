@@ -6,6 +6,8 @@
 
 .container-admin-page{
     margin: 0;
+    min-width: 100%;
+    min-height: 100%;
     background-color: #E8E2FF;
 }
 

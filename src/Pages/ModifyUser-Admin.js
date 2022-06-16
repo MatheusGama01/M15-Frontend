@@ -77,6 +77,21 @@ function ModifyUser() {
                 <form className="row g-3" >
 
                     <h1 className='mt-5'>Editar perfil de {nome}</h1>
+                    
+                    <div class="col-12">
+                        <label
+                            className="form-label"
+                        >
+                            Id:
+                        </label>
+                        <input
+                            type="text"
+                            readonly
+                            className="form-control"
+                            aria-label="readonly input example"
+                            value={idModifyProfile}
+                        />
+                    </div>
 
                     <div class="col-12">
                         <label
@@ -136,7 +151,7 @@ function ModifyUser() {
 
                     <div class="col-12">
                         <button
-                            className="btn btn-primary"
+                            className="btn btn-primary mt-2"
                             onClick={handleSubmitClick}
                         >
                             Editar
