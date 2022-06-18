@@ -4,7 +4,7 @@ import Lista from '../Components/Home/ListaFilmes.js'
 import Header from '../Components/Header/Header.js';
 import { useNavigate } from "react-router-dom";
 import { token } from "../auth.js";
-import "./AdminProfilePage.css";
+import "./home.css";
 
 
 
@@ -67,22 +67,28 @@ function Home() {
   return (
     <div className="container-admin-page">
       <div className="admin-profile-page">
+        
         <header>
           <Header />
         </header>
 
         <div className="content">
           <div className='d-flex justify-content-between mb-2'>
-            <div className='contagem-filmes'>
-              Filmes assistidos: {qntFilme}
-            </div>
+            <h4>
+              Meus filmes:
+            </h4>
             <div className='cadastrar-filme' onClick={redirectToRegisterFilm} >
               + Assisti a um filme
             </div>
           </div>
-          <div className='filmes-assistidos'>
-            {filme.map(f => <Lista filme={f} deleteFilm={removeFilme} />)}
+          <div className='container-home mt-3'>
+            <div className="row row-cols-1 row-cols-md-3 g-4">
+              {filme.map(f =>
+                <Lista filme={f} deleteFilm={removeFilme} />
+              )}
+            </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { FaPen, FaTrash } from "react-icons/fa/index.js";
 import { BsFillTrashFill } from "react-icons/bs/index.js";
 import "../CardPerfil/CardPerfil.css";
 
@@ -9,26 +10,33 @@ function Lista({ filme, deleteFilm }) {
     };
 
     return (
-        <div className="container-card-perfil" >
-            <div className="container-card-perfil-dados-usuário">
-                <div className="nome-card-perfil">
-                    <span>Nome: {filme.nome}</span>
+        <div className="col">
+            <div className="card shadow">
+
+                <div className="card-body">
+                    <h3 className="card-title">{filme.nome}</h3>
+                    <h6 className="card-title">Diretor: {filme.diretor}</h6>
+                    <h6 className="card-title">Gênero: {filme.genero}</h6>
+                    <p className="card-text">Opinião: {filme.opiniao}</p>
                 </div>
-                <div className="email-card-perfil">
-                    <span>Diretor: {filme.diretor}</span>
+
+                <div className="card-footer">
+                    
+                    <button className="btn btn-sm btn-outline-primary me-2" >
+                        <i className="me-2"><FaPen/></i>
+                        Editar
+                    </button>
+
+                    <button className="btn btn-sm btn-outline-danger" onClick={removeFilm}>
+                        <i className="me-2"><FaTrash/></i>
+                        Apagar
+                    </button>
+
                 </div>
-                <div className="email-card-perfil">
-                    <span>Gênero: {filme.genero}</span>
-                </div>
-                <div className="email-card-perfil">
-                    <span>Opnião: {filme.opniao}</span>
-                </div>
-            </div>
-            <div className="container-btn" onClick={removeFilm}>
-                <BsFillTrashFill />
-                <span className="apagar">Apagar</span>
+
             </div>
         </div>
+
     )
 }
 

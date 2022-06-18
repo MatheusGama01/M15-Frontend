@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%;
 }
+
 
 .container-admin-page{
     margin: 0;
@@ -26,6 +28,7 @@ header{
 
 .texto{
     justify-content: center;
+    font-size: 23px;
 }
 
 .card-perfil{

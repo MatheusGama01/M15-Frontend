@@ -5,7 +5,7 @@ import Home from "./Pages/Home.js";
 import Perfil from "./Pages/Perfil.js";
 import PerfilAdmin from "./Pages/AdminProfilePage.js";
 import RegisterForm from "../src/Components/Register/RegisterForm.js";
-import AssistiFilme from "./Components/Home/AssistiFilme.js";
+import AssistiFilme from "./Pages/AssistiFilme.js";
 import ModifyUser from './Pages/ModifyUser-Admin.js';
 import ProtectedRoute from "./ProtectedRoute.js";
 import { token } from "./auth.js";
