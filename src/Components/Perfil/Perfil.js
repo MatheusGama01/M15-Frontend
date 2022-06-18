@@ -78,6 +78,7 @@ function Perfil() {
     const handleSaveClick = (e) => {
         e.preventDefault();
         updateProfile(nome, email, password, baseURL, idPerfil);
+        getProfile(baseURL, idPerfil);
     }
 
     const handleBackClick = () => {
