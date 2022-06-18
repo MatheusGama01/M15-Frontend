@@ -36,7 +36,7 @@ function ModifyUser() {
     };
 
     function editarPerfil(nome, email, password, admin) {
-        axios.put(`${baseURL}/perfil/atualizar/${idModifyProfile}`, {
+        axios.put(`${baseURL}/admin/perfil/atualizar/${idModifyProfile}`, {
             nome,
             email,
             senha: password,

@@ -84,7 +84,7 @@ function Home() {
           <div className='container-home mt-3'>
             <div className="row row-cols-1 row-cols-md-3 g-4">
               {filme.map(f =>
-                <Lista filme={f} deleteFilm={removeFilme} />
+                <Lista key={f.id} filme={f} deleteFilm={removeFilme} />
               )}
             </div>
           </div>

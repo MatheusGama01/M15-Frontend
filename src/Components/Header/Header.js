@@ -28,17 +28,21 @@ function Header() {
         navigate('/admin')
     }
 
-    function getProfile(URL, id){
-        axios.get(`${URL}/perfil/${id}`,)
-        .then(response => {
-            console.log(response.data)
-            setAdmin(response.data.perfil.admin || "")
-            setNome(response.data.perfil.nome || "")
+    function getProfile(URL, id) {
+        axios.get(`${URL}/perfil/${id}`, {
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
         })
-        .catch(error => {
-            console.log(error)
-            alert(JSON.stringify(error.response.data.message))
-        })
+            .then(response => {
+                console.log(response.data)
+                setAdmin(response.data.perfil.admin || "")
+                setNome(response.data.perfil.nome || "")
+            })
+            .catch(error => {
+                console.log(error)
+                alert(JSON.stringify(error.response.data.message))
+            })
     }
 
     useEffect(() => {
