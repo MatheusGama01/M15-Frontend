@@ -14,6 +14,7 @@ function Perfil() {
     const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
     const decode = jwt_decode(token)
     const idPerfil = decode.id
+    console.log(idPerfil)
 
     const navigate = useNavigate();
 
@@ -77,7 +78,7 @@ function Perfil() {
     const handleSaveClick = (e) => {
         e.preventDefault();
         updateProfile(nome, email, password, baseURL, idPerfil);
-        getProfile();
+        getProfile(baseURL, idPerfil);
     }
 
     const handleBackClick = () => {

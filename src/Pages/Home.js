@@ -67,26 +67,39 @@ function Home() {
   return (
     <div className="container-admin-page">
       <div className="admin-profile-page">
-        
+
         <header>
           <Header />
         </header>
 
         <div className="content">
           <div className='d-flex justify-content-between mb-2'>
+
             <h4>
               Meus filmes:
             </h4>
-            <div className='cadastrar-filme' onClick={redirectToRegisterFilm} >
-              + Assisti a um filme
+
+            <div className='cadastrar-filme'>
+
+              <button
+                className="btn btn-sm btn-outline-primary me-2"
+                onClick={redirectToRegisterFilm}
+              >
+                + Assisti a um filme
+              </button>
+
             </div>
+
           </div>
+
           <div className='container-home mt-3'>
+
             <div className="row row-cols-1 row-cols-md-3 g-4">
               {filme.map(f =>
-                <Lista filme={f} deleteFilm={removeFilme} />
+                <Lista key={f.id} filme={f} deleteFilm={removeFilme} />
               )}
             </div>
+            
           </div>
 
         </div>

@@ -43,6 +43,15 @@ function Header() {
             console.log(error)
             alert(JSON.stringify(error.response.data.message))
         })
+            .then(response => {
+                console.log(response.data)
+                setAdmin(response.data.perfil.admin || "")
+                setNome(response.data.perfil.nome || "")
+            })
+            .catch(error => {
+                console.log(error)
+                alert(JSON.stringify(error.response.data.message))
+            })
     }
 
     useEffect(() => {
@@ -76,13 +85,11 @@ function Header() {
                     </div>
                 </div>
 
-
-
-                    <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
-                    <script src="js/jquery-3.6.0.min.js"></script>
-                    <script src="js/bootstrap.bundle.js"></script>
-                    <script src="js/popper.min.js"></script>
-                    <script src="js/bootstrap.min.js"></script>
+                <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+                <script src="js/jquery-3.6.0.min.js"></script>
+                <script src="js/bootstrap.bundle.js"></script>
+                <script src="js/popper.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
                 </div>
             </nav>
         </div>
