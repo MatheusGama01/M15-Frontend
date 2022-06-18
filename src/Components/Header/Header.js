@@ -28,6 +28,10 @@ function Header() {
         navigate('/admin')
     }
 
+    const redirectToLogin = () => {
+        navigate('/login')
+    }
+
     function getProfile(URL, id){
         axios.get(`${URL}/perfil/${id}`,)
         .then(response => {
@@ -47,24 +51,38 @@ function Header() {
 
 
     return (
+
         <div className="header">
             <nav className="container">
                 <div className="nome-app">
                     <div onClick={redirectToHome}><strong>M15</strong></div>
                 </div>
 
-                <div className='container-usuario-redirect'>
-                    {admin === true
-                        ? <div className="item-perfis">
-                            <div onClick={redirectToAdmin}>
-                                Usuários
-                            </div>
-                        </div>
-                        : <></>}
-
-                    <div className="item-usuario" onClick={redirectToPerfil}>
+                    <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         {nome}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div className="item-usuario" onClick={redirectToPerfil}>Meu perfil</div>
+                        <div className="item-usuario" onClick={redirectToLogin}>Sair</div>
+                        <div className='container-usuario-redirect'>
+                            {admin === true
+                                ? <div className="item-perfis">
+                                    <div onClick={redirectToAdmin}>
+                                        Usuários
+                                    </div>
+                                </div>
+                                : <></>}
                     </div>
+                </div>
+
+
+
+                    <script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+                    <script src="js/jquery-3.6.0.min.js"></script>
+                    <script src="js/bootstrap.bundle.js"></script>
+                    <script src="js/popper.min.js"></script>
+                    <script src="js/bootstrap.min.js"></script>
                 </div>
             </nav>
         </div>

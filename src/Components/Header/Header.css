@@ -40,7 +40,6 @@
     margin-right: 1em;
     border-radius: 5px;
     list-style: none;
-    background-color: #a3a3a3;
 }
 
 .item-perfis:hover{
@@ -52,7 +51,6 @@
     margin-right: 1em;
     border-radius: 50px;
     list-style: none;
-    background-color: #a3a3a3;
 }
 
 .item-usuario:hover{
