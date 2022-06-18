@@ -33,7 +33,11 @@ function Header() {
     }
 
     function getProfile(URL, id){
-        axios.get(`${URL}/perfil/${id}`,)
+        axios.get(`${URL}/perfil/${id}`, {
+            headers: {
+              'Authorization': `Basic ${token}`
+            }
+          })
         .then(response => {
             console.log(response.data)
             setAdmin(response.data.perfil.admin || "")
