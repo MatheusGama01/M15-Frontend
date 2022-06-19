@@ -11,7 +11,7 @@ function EditFilm(){
     const [genero, setGenero] = useState("")
     const [opiniao, setOpiniao] = useState("")
 
-    const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
+    const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
     const idModifyFilm = localStorage.getItem("idModifyFilm")
 
     const navigate = useNavigate();

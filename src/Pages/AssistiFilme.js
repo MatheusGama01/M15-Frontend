@@ -14,12 +14,11 @@ function AssistiFilme() {
     const [genero, setGenero] = useState("")
     const [opiniao, setOpiniao] = useState("")
 
-    const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
+    const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
 
     const navigate = useNavigate();
     const decode = jwtDecode(token)
     const id = decode.id
-    console.log(id)
 
     function cadastroFilme(nome, diretor, genero, opiniao, URL) {
 

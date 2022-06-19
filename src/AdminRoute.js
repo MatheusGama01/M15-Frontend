@@ -11,7 +11,7 @@ const AdminRoute = ({ children }) => {
     console.log(`Em AdminRoute o token é: ${token}`)
     const decode = jwtDecode(token)
     const id = decode.id
-    const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
+    const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
 
     function getProfile() {
         axios.get(`${baseURL}/perfil/${id}`, {

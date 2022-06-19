@@ -13,8 +13,7 @@ function Header() {
 
     const decode = jwtDecode(token)
     const idPerfil = decode.id
-    const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
-
+    const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
     const navigate = useNavigate();
 
     const redirectToHome = () => {

@@ -8,7 +8,7 @@ function ModifyUser() {
     const [nome, setNome] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [admin, setAdmin] = useState("");
+    const [admin, setAdmin] = useState(false);
 
 
     const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
@@ -27,7 +27,7 @@ function ModifyUser() {
                 setNome(response.data.perfil.nome || "")
                 setEmail(response.data.perfil.email || "")
                 setPassword(response.data.perfil.senha || "")
-                setAdmin(response.data.perfil.admin || "")
+                setAdmin(response.data.perfil.admin || false)
             })
             .catch(error => {
                 console.log(error)
