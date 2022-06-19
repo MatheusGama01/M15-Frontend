@@ -11,7 +11,7 @@ function ModifyUser() {
     const [admin, setAdmin] = useState(false);
 
 
-    const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
+    const baseURL = "https://m15-backend.herokuapp.com" || "http://localhost:4000"
     const idModifyProfile = localStorage.getItem("idModifyProfile")
 
     const navigate = useNavigate();
