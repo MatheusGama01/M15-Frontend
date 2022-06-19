@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import jwtDecode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
+import { removerToken } from '../../auth.js'
 import { token } from '../../auth.js';
 import "./Header.css"
 
@@ -29,6 +30,7 @@ function Header() {
     }
 
     const redirectToLogin = () => {
+        removerToken()
         navigate('/login')
     }
 

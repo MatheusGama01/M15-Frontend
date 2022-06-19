@@ -1,56 +1,69 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from '../Components/Header/Header.js';
 import { token } from "../auth.js";
-import './AssistiFilme.css';
-import jwtDecode from 'jwt-decode';
 
+function EditFilm(){
 
-
-function AssistiFilme() {
     const [nome, setNome] = useState("")
     const [diretor, setDiretor] = useState("")
     const [genero, setGenero] = useState("")
     const [opiniao, setOpiniao] = useState("")
 
     const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
+    const idModifyFilm = localStorage.getItem("idModifyFilm")
 
     const navigate = useNavigate();
-    const decode = jwtDecode(token)
-    const id = decode.id
-    console.log(id)
 
-    function cadastroFilme(nome, diretor, genero, opiniao, URL) {
+    function getFilm(URL, id) {
+        axios.get(`${URL}/filme/${id}`, {
+            headers: {
+                'Authorization': `Basic ${token}`
+            }
+        })
+            .then(response => {
+                console.log(response.data)
+                setNome(response.data.movies.nome || "")
+                setDiretor(response.data.movies.diretor || "")
+                setGenero(response.data.movies.genero || "")
+                setOpiniao(response.data.movies.opiniao || "")
+            })
+            .catch(error => {
+                console.log(error)
+                alert(JSON.stringify(error.response.data.message))
+            })
+    };
 
-        axios.post(`${URL}/filme/cadastro`, {
+    function editFilm(nome, diretor, genero, opiniao) {
+        axios.put(`${baseURL}/filme/atualizar/${idModifyFilm}`, {
             nome,
             diretor,
             genero,
             opiniao,
-            perfil: id,
         }, {
             headers: {
                 'Authorization': `Basic ${token}`
             }
-        }).then(res => {
-            console.log(res.data.message)
-            alert(JSON.stringify(res.data.message))
-            navigate('/')
-        }).catch(error => {
-            console.log(error)
-            alert(JSON.stringify(error.response.data.message))
         })
-
+            .then(response => {
+                alert(JSON.stringify(response.data.message))
+                navigate('/')
+            })
+            .catch(error => console.error(error));
     };
+
+    useEffect(() => {
+        getFilm(baseURL, idModifyFilm);
+    }, []);
 
     const handleSubmitClick = (e) => {
         e.preventDefault();
-        cadastroFilme(nome, diretor, genero, opiniao, baseURL);
+        editFilm(nome, diretor, genero, opiniao);
     };
 
 
-    return (
+    return(
         <div className='container-page'>
             <div>
                 <Header />
@@ -60,7 +73,7 @@ function AssistiFilme() {
 
                 <form id="formulario" className="row g-3" >
 
-                    <h1 className='mt-5'>Cadatrar filme!</h1>
+                    <h1 className='mt-5'>Editar filme!</h1>
 
                     <div className="col-12">
                         <label
@@ -129,13 +142,13 @@ function AssistiFilme() {
                             className="btn btn-primary"
                             onClick={handleSubmitClick}
                         >
-                            Cadastrar filme
+                            Editar filme
                         </button>
                     </div>
                 </form>
             </div>
         </div>
     )
-}
+};
 
-export default AssistiFilme;
+export default EditFilm;

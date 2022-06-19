@@ -8,8 +8,10 @@ import RegisterForm from "../src/Components/Register/RegisterForm.js";
 import AssistiFilme from "./Pages/AssistiFilme.js";
 import ModifyUser from './Pages/ModifyUser-Admin.js';
 import ProtectedRoute from "./ProtectedRoute.js";
+import EditFilm from './Pages/EditFilm.js';
 import { token } from "./auth.js";
 import { history } from './history.js';
+import AdminRoute from './AdminRoute.js';
 
 
 function App() {
@@ -35,21 +37,31 @@ function App() {
           </ProtectedRoute>
         } />
 
+        <Route path='/filme/cadastro' element={
+          <ProtectedRoute token={token}  >
+            <AssistiFilme token={token} />
+          </ProtectedRoute>
+        } />
+
+        <Route path='/filme/editar' element={
+          <ProtectedRoute token={token}  >
+            <EditFilm token={token} />
+          </ProtectedRoute>
+        } />
+
         <Route path='/admin' element={
           <ProtectedRoute token={token}>
-            <PerfilAdmin token={token} />
+            <AdminRoute token={token}>
+              <PerfilAdmin token={token} />
+            </AdminRoute>
           </ProtectedRoute>
         } />
 
         <Route path='/admin/perfil' element={
           <ProtectedRoute token={token}>
-            <ModifyUser token={token} />
-          </ProtectedRoute>
-        } />
-
-        <Route path='/filme/cadastro' element={
-          <ProtectedRoute token={token}  >
-            <AssistiFilme token={token} />
+            <AdminRoute token={token}>
+              <ModifyUser token={token} />
+            </AdminRoute>
           </ProtectedRoute>
         } />
 

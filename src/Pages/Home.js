@@ -15,11 +15,10 @@ function Home() {
   const [filme, setFilme] = useState([])
 
   const baseURL = "http://localhost:4000" || "https://m15-backend.herokuapp.com"
-  let qntFilme = "0"
 
   const navigate = useNavigate();
 
-  function getFilme(URL) {
+  function getFilm(URL) {
     axios.get(`${URL}/filme`, {
       headers: {
         'Authorization': `Basic ${token}`
@@ -28,8 +27,6 @@ function Home() {
       .then(response => {
         console.log(response.data)
         setFilme(response.data || null)
-        qntFilme = response.data.length
-        console.log(`qntFilme = ${qntFilme}`)
       })
       .catch(error => {
         console.log(error)
@@ -39,7 +36,7 @@ function Home() {
   };
 
 
-  function removeFilme(id) {
+  function removeFilm(id) {
     axios.delete(`${baseURL}/filme/apagar/${id}`, {
       headers: {
         'Authorization': `Basic ${token}`
@@ -47,7 +44,7 @@ function Home() {
     })
       .then(response => {
         window.confirm(JSON.stringify(response.data.message))
-        getFilme(baseURL);
+        getFilm(baseURL);
       })
       .catch(error => {
         console.error(error)
@@ -57,7 +54,7 @@ function Home() {
 
 
   useEffect(() => {
-    getFilme(baseURL)
+    getFilm(baseURL)
   }, [])
 
   function redirectToRegisterFilm() {
@@ -96,7 +93,7 @@ function Home() {
 
             <div className="row row-cols-1 row-cols-md-3 g-4">
               {filme.map(f =>
-                <Lista key={f.id} filme={f} deleteFilm={removeFilme} />
+                <Lista key={f.id} filme={f} deleteFilm={removeFilm} />
               )}
             </div>
             

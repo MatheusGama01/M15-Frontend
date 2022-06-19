@@ -51,7 +51,7 @@ function ModifyUser() {
                 navigate('/admin')
             })
             .catch(error => console.error(error));
-    }
+    };
 
     useEffect(() => {
         getProfile(baseURL, idModifyProfile);

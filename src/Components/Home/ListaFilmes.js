@@ -1,13 +1,23 @@
 import React from "react";
 import { FaPen, FaTrash } from "react-icons/fa/index.js";
-import { BsFillTrashFill } from "react-icons/bs/index.js";
+import { changeIdEditFilm } from "../../utils/variaveis.js";
+import { useNavigate } from "react-router-dom";
 import "../CardPerfil/CardPerfil.css";
 
 function Lista({ filme, deleteFilm }) {
+
+    const id = filme._id
+
+    const navigate = useNavigate();
+
     function removeFilm() {
-        const id = filme._id
         deleteFilm(id);
     };
+
+    function redirectToEditFilm(){
+        changeIdEditFilm(id);
+        navigate("/filme/editar")
+    }
 
     return (
         <div className="col">
@@ -22,7 +32,7 @@ function Lista({ filme, deleteFilm }) {
 
                 <div className="card-footer">
                     
-                    <button className="btn btn-sm btn-outline-primary me-2" >
+                    <button className="btn btn-sm btn-outline-primary me-2" onClick={redirectToEditFilm}>
                         <i className="me-2"><FaPen/></i>
                         Editar
                     </button>
