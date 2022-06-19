@@ -20,7 +20,6 @@ O Objetivo do projeto é que você nunca perca os filmes que você assistiu,o M1
 * React.JS
 * Axios 
 * Bootstrap
-* Express
 * History
 * Jwt-Decode
 * React Bootstrap
