@@ -1,7 +1,7 @@
 
 # 🚀 M15 - FRONTEND
 
-O Objetivo do projeto é que você nunca perca os filmes que você assistiu,o M15 te dará a oportunidade de salvar o Nome, Diretor,Genêro além de poder dá a  sua opnião.  
+O Objetivo do projeto é que você nunca perca os filmes que você assistiu,o M15 te dará a oportunidade de salvar o Nome, Diretor,Genêro além de poder dá a  sua opinao.  
 
 
 # ⚠️ Pré-requisitos
